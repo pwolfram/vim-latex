@@ -1,0 +1,48 @@
+Index: main.vim
+===================================================================
+--- main.vim	(revision 1075)
++++ main.vim	(working copy)
+@@ -886,7 +886,7 @@
+ " Sets Tlist_Ctags_Cmd for taglist.vim and regexps for ctags {{{
+ if exists("g:Tex_TaglistSupport") && g:Tex_TaglistSupport == 1 
+ 	if !exists("g:tlist_tex_settings") 
+-		let g:tlist_tex_settings = 'tex;s:section;c:chapter;l:label;r:ref'
++		let g:tlist_tex_settings = 'tex;d:Sections;l:Labels;r:References'
+ 	endif
+ 
+ 	if exists("Tlist_Ctags_Cmd")
+@@ -897,20 +897,20 @@
+ 
+ 	if exists("g:Tex_InternalTagsDefinitions") && g:Tex_InternalTagsDefinitions == 1
+ 		let Tlist_Ctags_Cmd = s:tex_ctags ." --langdef=tex --langmap=tex:.tex.ltx.latex"
+-		\.' --regex-tex="/\\\\begin{abstract}/Abstract/s,abstract/"'
+-		\.' --regex-tex="/\\\\part[ \t]*\*?\{[ \t]*([^}]*)\}/\1/s,part/"'
+-		\.' --regex-tex="/\\\\chapter[ \t]*\*?\{[ \t]*([^}]*)\}/\1/s,chapter/"'
+-		\.' --regex-tex="/\\\\section[ \t]*\*?\{[ \t]*([^}]*)\}/\1/s,section/"'
+-		\.' --regex-tex="/\\\\subsection[ \t]*\*?\{[ \t]*([^}]*)\}/+ \1/s,subsection/"'
+-		\.' --regex-tex="/\\\\subsubsection[ \t]*\*?\{[ \t]*([^}]*)\}/+  \1/s,subsubsection/"'
+-		\.' --regex-tex="/\\\\paragraph[ \t]*\*?\{[ \t]*([^}]*)\}/+   \1/s,paragraph/"'
+-		\.' --regex-tex="/\\\\subparagraph[ \t]*\*?\{[ \t]*([^}]*)\}/+    \1/s,subparagraph/"'
+-		\.' --regex-tex="/\\\\begin{thebibliography}/BIBLIOGRAPHY/s,thebibliography/"'
+-		\.' --regex-tex="/\\\\tableofcontents/TABLE OF CONTENTS/s,tableofcontents/"'
+-		\.' --regex-tex="/\\\\frontmatter/FRONTMATTER/s,frontmatter/"'
+-		\.' --regex-tex="/\\\\mainmatter/MAINMATTER/s,mainmatter/"'
+-		\.' --regex-tex="/\\\\backmatter/BACKMATTER/s,backmatter/"'
+-		\.' --regex-tex="/\\\\appendix/APPENDIX/s,appendix/"'
++		\.' --regex-tex="/\\\\begin{abstract}/Abstract/d,abstract/"'
++		\.' --regex-tex="/\\\\part[ \t]*\*?\{[ \t]*([^}]*)\}/\1/d,part/"'
++		\.' --regex-tex="/\\\\chapter[ \t]*\*?\{[ \t]*([^}]*)\}/\1/d,chapter/"'
++		\.' --regex-tex="/\\\\section[ \t]*\*?\{[ \t]*([^}]*)\}/\1/d,section/"'
++		\.' --regex-tex="/\\\\subsection[ \t]*\*?\{[ \t]*([^}]*)\}/+ \1/d,subsection/"'
++		\.' --regex-tex="/\\\\subsubsection[ \t]*\*?\{[ \t]*([^}]*)\}/+  \1/d,subsubsection/"'
++		\.' --regex-tex="/\\\\paragraph[ \t]*\*?\{[ \t]*([^}]*)\}/+   \1/d,paragraph/"'
++		\.' --regex-tex="/\\\\subparagraph[ \t]*\*?\{[ \t]*([^}]*)\}/+    \1/d,subparagraph/"'
++		\.' --regex-tex="/\\\\begin{thebibliography}/BIBLIOGRAPHY/d,thebibliography/"'
++		\.' --regex-tex="/\\\\tableofcontents/TABLE OF CONTENTS/d,tableofcontents/"'
++		\.' --regex-tex="/\\\\frontmatter/FRONTMATTER/d,frontmatter/"'
++		\.' --regex-tex="/\\\\mainmatter/MAINMATTER/d,mainmatter/"'
++		\.' --regex-tex="/\\\\backmatter/BACKMATTER/d,backmatter/"'
++		\.' --regex-tex="/\\\\appendix/APPENDIX/d,appendix/"'
+ 		\.' --regex-tex="/\\\\label[ \t]*\*?\{[ \t]*([^}]*)\}/\1/l,label/"'
+ 		\.' --regex-tex="/\\\\ref[ \t]*\*?\{[ \t]*([^}]*)\}/\1/r,ref/"'
+ 	endif
