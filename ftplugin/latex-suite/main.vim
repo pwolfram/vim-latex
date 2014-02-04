@@ -886,7 +886,7 @@ augroup END
 " Sets Tlist_Ctags_Cmd for taglist.vim and regexps for ctags {{{
 if exists("g:Tex_TaglistSupport") && g:Tex_TaglistSupport == 1 
 	if !exists("g:tlist_tex_settings") 
-		let g:tlist_tex_settings = 'tex;d:Sections;l:Labels;r:References'
+		let g:tlist_tex_settings = 'tex;c:chapter;d:section;l:label;r:ref;remainder:s'
 	endif
 
 	if exists("Tlist_Ctags_Cmd")
@@ -898,13 +898,13 @@ if exists("g:Tex_TaglistSupport") && g:Tex_TaglistSupport == 1
 	if exists("g:Tex_InternalTagsDefinitions") && g:Tex_InternalTagsDefinitions == 1
 		let Tlist_Ctags_Cmd = s:tex_ctags ." --langdef=tex --langmap=tex:.tex.ltx.latex"
 		\.' --regex-tex="/\\\\begin{abstract}/Abstract/d,abstract/"'
-		\.' --regex-tex="/\\\\part[ \t]*\*?\{[ \t]*([^}]*)\}/\1/d,part/"'
-		\.' --regex-tex="/\\\\chapter[ \t]*\*?\{[ \t]*([^}]*)\}/\1/d,chapter/"'
-		\.' --regex-tex="/\\\\section[ \t]*\*?\{[ \t]*([^}]*)\}/\1/d,section/"'
-		\.' --regex-tex="/\\\\subsection[ \t]*\*?\{[ \t]*([^}]*)\}/+ \1/d,subsection/"'
-		\.' --regex-tex="/\\\\subsubsection[ \t]*\*?\{[ \t]*([^}]*)\}/+  \1/d,subsubsection/"'
-		\.' --regex-tex="/\\\\paragraph[ \t]*\*?\{[ \t]*([^}]*)\}/+   \1/d,paragraph/"'
-		\.' --regex-tex="/\\\\subparagraph[ \t]*\*?\{[ \t]*([^}]*)\}/+    \1/d,subparagraph/"'
+		\.' --regex-tex="/\\\\part[ \t]*\*?\{[ \t]*([^\}]*)\}/\1/d,part/"'
+		\.' --regex-tex="/\\\\chapter[ \t]*\*?\{[ \t]*([^\}]*)\}/\1/d,chapter/"'
+		\.' --regex-tex="/\\\\section[ \t]*\*?.*\{[ \t]*([^\}]*)\}/\1/d,section/"'
+		\.' --regex-tex="/\\\\subsection[ \t]*\*?\{[ \t]*([^\}]*)\}/+ \1/d,subsection/"'
+		\.' --regex-tex="/\\\\subsubsection[ \t]*\*?\{[ \t]*([^\}]*)\}/+  \1/d,subsubsection/"'
+		\.' --regex-tex="/\\\\paragraph[ \t]*\*?\{[ \t]*([^\}]*)\}/+   \1/d,paragraph/"'
+		\.' --regex-tex="/\\\\subparagraph[ \t]*\*?\{[ \t]*([^\}]*)\}/+    \1/d,subparagraph/"'
 		\.' --regex-tex="/\\\\begin{thebibliography}/BIBLIOGRAPHY/d,thebibliography/"'
 		\.' --regex-tex="/\\\\tableofcontents/TABLE OF CONTENTS/d,tableofcontents/"'
 		\.' --regex-tex="/\\\\frontmatter/FRONTMATTER/d,frontmatter/"'
