@@ -899,10 +899,10 @@ if exists("g:Tex_TaglistSupport") && g:Tex_TaglistSupport == 1
 		let Tlist_Ctags_Cmd = s:tex_ctags ." --langdef=tex --langmap=tex:.tex.ltx.latex"
 		\.' --regex-tex="/\\\\begin{abstract}/Abstract/d,abstract/"'
 		\.' --regex-tex="/\\\\part[ \t]*\*?\{[ \t]*([^\}]*)\}/\1/d,part/"'
-		\.' --regex-tex="/\\\\chapter[ \t]*\*?\{[ \t]*([^\}]*)\}/\1/d,chapter/"'
+		\.' --regex-tex="/\\\\chapter[ \t]*\.*?\{[ \t]*([^\}]*)\}/\1/d,chapter/"'
 		\.' --regex-tex="/\\\\section[ \t]*\*?.*\{[ \t]*([^\}]*)\}/\1/d,section/"'
-		\.' --regex-tex="/\\\\subsection[ \t]*\*?\{[ \t]*([^\}]*)\}/+ \1/d,subsection/"'
-		\.' --regex-tex="/\\\\subsubsection[ \t]*\*?\{[ \t]*([^\}]*)\}/+  \1/d,subsubsection/"'
+		\.' --regex-tex="/\\\\subsection[ \t]*\*?.*\{[ \t]*([^\}]*)\}/+ \1/d,subsection/"'
+		\.' --regex-tex="/\\\\subsubsection[ \t]*\.*?\{[ \t]*([^\}]*)\}/+  \1/d,subsubsection/"'
 		\.' --regex-tex="/\\\\paragraph[ \t]*\*?\{[ \t]*([^\}]*)\}/+   \1/d,paragraph/"'
 		\.' --regex-tex="/\\\\subparagraph[ \t]*\*?\{[ \t]*([^\}]*)\}/+    \1/d,subparagraph/"'
 		\.' --regex-tex="/\\\\begin{thebibliography}/BIBLIOGRAPHY/d,thebibliography/"'
